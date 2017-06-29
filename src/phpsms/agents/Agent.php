@@ -165,7 +165,7 @@ abstract class Agent
     {
         $params = $this->params($params);
         if (!array_key_exists(CURLOPT_POSTFIELDS, $opts)) {
-            $opts[CURLOPT_POSTFIELDS] = $params;
+            $opts[CURLOPT_POSTFIELDS] = http_build_query($params);
         }
         $opts[CURLOPT_POST] = true;
         $opts[CURLOPT_URL] = $url;
