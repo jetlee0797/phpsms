@@ -18,7 +18,7 @@ class SendCloudAgent extends Agent implements TemplateSms, VoiceCode
             'phone'      => $to,
             'templateId' => $tempId,
         ];
-        $this->request('http://sendcloud.sohu.com/smsapi/send', $params);
+        $this->request('http://api.sendcloud.net/smsapi/send', $params);
     }
 
     public function sendVoiceCode($to, $code)
@@ -27,7 +27,7 @@ class SendCloudAgent extends Agent implements TemplateSms, VoiceCode
             'phone' => $to,
             'code'  => $code,
         ];
-        $this->request('http://sendcloud.sohu.com/smsapi/sendVoice', $params);
+        $this->request('http://api.sendcloud.net/smsapi/sendVoice', $params);
     }
 
     protected function request($sendUrl, array $params)
