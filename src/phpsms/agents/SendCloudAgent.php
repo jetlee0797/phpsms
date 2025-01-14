@@ -12,8 +12,9 @@ class SendCloudAgent extends Agent implements TemplateSms, VoiceCode
 {
     public function sendTemplateSms($to, $tempId, array $data)
     {
+        $msgType = config('laravel-sms.msgType',0);
         $params = [
-            'msgType'    => 0,
+            'msgType'    => $msgType,
             'vars'       => $this->getTempDataString($data),
             'phone'      => $to,
             'templateId' => $tempId,
